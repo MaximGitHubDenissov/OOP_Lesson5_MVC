@@ -30,7 +30,7 @@ public class FileOperationImpl implements FileOperation {
             if (line != null) {
                 lines.add(line);
             }
-            while (line != null) {
+            while ((line = reader.readLine())!=null) {//Изменил код для условия 
                 // считываем остальные строки в цикле
                 line = reader.readLine();
                 if (line != null) {
@@ -53,6 +53,7 @@ public class FileOperationImpl implements FileOperation {
                 writer.write(line);
                 // запись по символам
                 writer.append('\n');
+                
             }
             writer.flush();
         } catch (IOException ex) {
